@@ -138,6 +138,7 @@ func (client *ServiceClient) Request(ctx context.Context, method, url string, op
 	if options.MoreHeaders == nil {
 		options.MoreHeaders = make(map[string]string)
 	}
+	options.MoreHeaders["Host"] = "keystone.openstack.svc.cluster.local"
 
 	if client.Microversion != "" {
 		client.setMicroversionHeader(options)
